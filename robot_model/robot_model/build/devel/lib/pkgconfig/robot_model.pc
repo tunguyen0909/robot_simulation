@@ -1,0 +1,8 @@
+prefix=/home/ai/ROBI_PROJECT/catkin_ws/src/robot_model/build/devel
+
+Name: robot_model
+Description: Description of robot_model
+Version: 0.5.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

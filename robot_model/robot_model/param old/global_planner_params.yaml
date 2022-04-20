@@ -1,0 +1,29 @@
+GlobalPlanner:
+
+#Specifies whether or not to allow the planner to create plans that traverse unknown space. NOTE: if you are using a layered costmap_2d costmap with a voxel or obstacle layer, you must also set the track_unknown_space param for that layer to be true, or it will convert all your unknown space to free space (which planner will then happily go right through). 
+  allow_unknown: true
+
+#A tolerance on the goal point for the planner. The planner will attempt to create a plan that is as close to the specified goal as possible but no further than default_tolerance away. 
+  default_tolerance: 0.0
+
+  use_dijkstra: true 
+
+  use_quadratic: true #false
+
+  use_grid_path: false 
+
+  old_navfn_behavior: true
+
+  lethal_cost: 253
+
+  neutral_cost: 60
+
+  cost_factor: 30
+
+  publish_potential: true
+  
+  orientation_mode: 0
+
+  orientation_window_size: 1
+
+  outline_map: true

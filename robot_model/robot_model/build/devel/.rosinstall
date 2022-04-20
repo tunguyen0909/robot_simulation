@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/ai/ROBI_PROJECT/catkin_ws/src/robot_model/build/devel/setup.sh

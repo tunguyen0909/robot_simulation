@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<robot name="multipleshapes">
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="0.18 0.18 0.12"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.06"/>
+    </visual>
+    
+  </link>
+  
+  <link name="base_laser">
+    <visual>
+      <geometry>
+        <box size="0.03 0.03 0.02"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="base_laser_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="base_laser"/>
+
+    <origin xyz="0 -0.075 0.13"/>
+    
+    
+  </joint>
+
+  <!-- <link name="right_leg">
+    <visual>
+      <geometry>
+        <box size="10 0.5 0.2"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="base_to_right_leg" type="fixed">
+    <parent link="base_link"/>
+    <child link="right_leg"/>
+  </joint> -->
+
+</robot>

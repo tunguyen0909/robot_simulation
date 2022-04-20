@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- SERIAL -->
+  <include file="$(find robot_model)/launch/includes/serial/serial.launch">
+    <arg name="port" value="/dev/ttyUSB1"/>
+    <arg name="baud" value="115200"/>
+  </include>
+
+
+  <!-- LIDAR -->
+
+  <include file="$(find robot_model)/launch/includes/lidar/lidar.launch">
+    <arg name="serial_port" value="/dev/ttyUSB2"/>
+    <arg name="frame_id" value="hokuyo_link"/>
+  </include>
+
+  <include file="$(find robot_model)/launch/includes/lidar/laser_filter.launch">
+  </include>
+
+  <!-- diff_tf NODE -->
+  <node pkg="robot_model" type="diff_tf" name="diff_tf" output="screen"></node>
+
+  <!-- IMU NODE -->
+  <!--<include file="$(find robot_model)/launch/includes/imu/imu.launch">
+  </include>-->
+</launch>

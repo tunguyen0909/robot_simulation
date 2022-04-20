@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="serial_port" default="/dev/ttyUSB2"/>
+  <arg name="frame_id" default="hokuyo_link"/>
+
+  <node name="delta_lidar" pkg="delta_lidar"  type="delta_lidar_node" output="screen">
+    <param name="serial_port" type="string" value="$(arg serial_port)"/>
+    <param name="frame_id" type="string" value="$(arg frame_id)"/>
+    <!--<remap from="scan" to="base_scan" />-->
+  </node>
+
+</launch>

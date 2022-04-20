@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<launch>  
+  <arg name="map_file" default="$(find robot_model)/maps/map.yaml"/>
+  
+
+  <arg name="initial_pose_x" default="0.0"/> <!-- Use 17.0 for willow's map in simulation -->
+  <arg name="initial_pose_y" default="0.0"/> <!-- Use 17.0 for willow's map in simulation -->
+  <arg name="initial_pose_a" default="0.0"/>
+
+  <!-- MAP SERVER -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+
+  <!-- AMCL -->
+
+  <include file="$(find robot_model)/launch/includes/amcl/amcl.launch.xml">
+ 
+
+
+    <arg name="initial_pose_x" value="$(arg initial_pose_x)"/>
+    <arg name="initial_pose_y" value="$(arg initial_pose_y)"/>
+    <arg name="initial_pose_a" value="$(arg initial_pose_a)"/>
+
+  </include>
+
+
+  <!-- MOVE_BASE -->
+  <include file="$(find robot_model)/launch/includes/move_base/move_base.launch.xml"/>
+
+
+
+  <!-- ROBOT LOCALIZATION -->
+  <!--<node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization"> 
+    <remap from="odometry/filtered" to="odom" />
+    <rosparam command="load" file="$(find robot_model)/config/ekf.yaml" />
+  </node>-->
+ 
+
+
+
+</launch>

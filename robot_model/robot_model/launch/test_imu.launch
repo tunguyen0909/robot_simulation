@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<launch>
+
+
+  <!-- define specific name -->
+
+  <arg name="model" default="$(find robot_model)/urdf/test_imu.urdf"/>
+  <arg name="rvizconfig" default="$(find robot_model)/rviz/urdf.rviz" />
+
+  <!-- Load model urdf use robot description param-->
+  <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
+   
+
+  
+  <!-- joint state publisher package -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    
+  </node>
+  
+  <!-- robot state publisher package -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+
+  <!-- rviz node - Load config file for rviz -->
+  <node name="rviz" pkg="rviz" type="rviz"  required="true" />
+
+  <!-- <node pkg="robot_model" type="imu_trans" name="imu_trans" output="screen"></node>-->
+
+</launch>
